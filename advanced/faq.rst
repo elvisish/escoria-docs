@@ -441,3 +441,65 @@ If you use a control node like ``TextureRect`` or ``ColorRect``,
 they will cause problems with mouse interactions. You will need to
 modify the properties of the ``TextureRect`` / ``ColorRect`` and set its
 "Mouse Filter" setting to "Ignore".
+
+I want to call my own GDScript function from ESC. How can I do this?
+--------------------------------------------------------------------
+
+ESC makes this possible by providing the `custom` command. The function
+must be associated with the child node of an `ESCItem` in your scene.
+
+(See :doc:`https://docs.escoria-framework.org/en/devel/scripting/z_esc_reference.html#custom-object-node-func-name-params-api-doc`)
+
+To make use of this handy command, follow these steps:
+
+* Create a new node of the appropriate type as a child of an `ESCItem` in your
+  scene. For example, if you have a door in your scene and you want to make a
+  function that does something special when the door opens, you could create a
+  child node of type `Node2D` underneath the `ESCItem` that represents that
+  door.
+
+.. hint::
+
+   Remember the global ID of this `ESCItem`. You'll need it when you use the
+   `custom` command.
+
+* Create your GDScript function in a .gd file and attach it to the child node
+  as described above. This function can be called anything you want, but it
+  must take exactly one argument. Escoria will pass in to the function any and
+  all arguments pass in via the `custom` command as an array. If your function
+  doesn't require any arguments, Escoria will pass in an empty array.
+
+.. hint::
+
+   Remember the name of the node that makes use of your script. You'll need it
+   when you use the `custom` command.
+
+.. hint::
+
+  It is up to you to unpack the arguments passed in via the `custom` command as
+  well as to perform any validation on these arguments you deem necessary.
+
+* In the appropriate event in an ESC script file, call the function you made
+  above by using the `custom` command, e.g.
+
+.. code-block::
+
+   :setup
+   # Call the function you defined with some arguments
+   custom esc_item_global_id child_node_name function_name arg1 arg2 arg3
+
+.. hint::
+
+   You can pass in as many arguments you want to your function. If no arguments
+   are required, you don't need to specify anything else after the function's
+   name.
+
+.. hint::
+
+   Remember that any arguments you pass to your function must be literals.
+   Variables like ESC flags, globals and the like cannot be used currently.
+
+Now, when the above `:setup` event is run, it will call `function_name` with
+the specified arguments
+
+That's all there is to it!
