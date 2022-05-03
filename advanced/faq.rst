@@ -442,8 +442,8 @@ they will cause problems with mouse interactions. You will need to
 modify the properties of the ``TextureRect`` / ``ColorRect`` and set its
 "Mouse Filter" setting to "Ignore".
 
-I want to call my own GDScript function from ESC. How can I do this?
---------------------------------------------------------------------
+How can I call my own GDScript function from Escoria?
+-----------------------------------------------------
 
 ESC makes this possible by providing the `custom` command. The function
 must be associated with the child node of an `ESCItem` in your scene.
