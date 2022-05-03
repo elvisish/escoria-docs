@@ -531,6 +531,6 @@ To make use of this handy command, follow these steps:
 
 .. hint::
 
-   Remember that any arguments you pass to your function must be literals.
-   Variables like ESC flags, globals and the like cannot be used currently.
+   Any arguments you pass to your function must be literals.
+   Escoria variables (ESC flags, globals, etc) cannot be passed currently.
 
