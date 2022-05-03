@@ -471,11 +471,6 @@ To make use of this handy command, follow these steps:
 
 .. hint::
 
-   Remember the name of the node that makes use of your script. You'll need it
-   when you use the `custom` command.
-
-.. hint::
-
   It is up to you to unpack the arguments passed in via the `custom` command as
   well as to perform any validation on these arguments you deem necessary.
 
