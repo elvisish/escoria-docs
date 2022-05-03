@@ -445,7 +445,7 @@ modify the properties of the ``TextureRect`` / ``ColorRect`` and set its
 How can I call my own GDScript function from Escoria?
 -----------------------------------------------------
 
-ESC makes this possible by providing the `custom` command. The function
+Escoria script makes this possible by providing the `custom` command. The function
 must be associated with the child node of an `ESCItem` in your scene.
 
 (See :doc:`https://docs.escoria-framework.org/en/devel/scripting/z_esc_reference.html#custom-object-node-func-name-params-api-doc`)
