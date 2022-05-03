@@ -465,8 +465,8 @@ To make use of this handy command, follow these steps:
 
 * Create your GDScript function in a .gd file and attach it to the child node
   as described above. This function can be called anything you want, but it
-  must take exactly one argument. Escoria will pass in to the function any and
-  all arguments pass in via the `custom` command as an array. If your function
+  **must** take exactly one argument. Escoria will pass in to the function any and
+  all arguments specified in the `custom` command as an array. If your function
   doesn't require any arguments, Escoria will pass in an empty array.
 
 .. hint::
