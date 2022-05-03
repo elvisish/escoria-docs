@@ -452,10 +452,10 @@ must be associated with the child node of an `ESCItem` in your scene.
 
 To make use of this handy command, follow these steps:
 
-* Create a new node of the appropriate type as a child of an `ESCItem` in your
+* Create a new node of an appropriate type as a child of an `ESCItem` in your
   scene. For example, if you have a door in your scene and you want to make a
   function that does something special when the door opens, you could create a
-  child node of type `Node2D` underneath the `ESCItem` that represents that
+  child node of type `Node2D` underneath the `ESCItem` that represents the
   door.
 
 .. hint::
