@@ -460,8 +460,8 @@ To make use of this handy command, follow these steps:
 
 .. hint::
 
-   Remember the global ID of this `ESCItem`. You'll need it when you use the
-   `custom` command.
+   Remember the global ID and name of this `ESCItem`. 
+   You'll need them when you use the `custom` command.
 
 * Create your GDScript function in a .gd file and attach it to the child node
   as described above. This function can be called anything you want, but it
