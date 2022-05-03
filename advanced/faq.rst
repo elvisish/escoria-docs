@@ -534,7 +534,3 @@ To make use of this handy command, follow these steps:
    Remember that any arguments you pass to your function must be literals.
    Variables like ESC flags, globals and the like cannot be used currently.
 
-Now, when the above `:setup` event is run, it will call `function_name` with
-the specified arguments
-
-That's all there is to it!
