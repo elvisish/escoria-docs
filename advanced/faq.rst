@@ -474,14 +474,54 @@ To make use of this handy command, follow these steps:
   It is up to you to unpack the arguments passed in via the `custom` command as
   well as to perform any validation on these arguments you deem necessary.
 
-* In the appropriate event in an ESC script file, call the function you made
-  above by using the `custom` command, e.g.
+* In the appropriate event in an Escoria script file, call the function you made
+  above by using the `custom` command. For example :
+     * Your game has a node with a global_id of "treasure_maps"
+     * The "treasure_maps" node a child node called "france_treasure_map".
+     * "france_treasure_map" has a Godot script (in GDscript format) attached. 
+        In this script is a function "draw_treasure" to show a map on the screen.
+       In your Escoria script, you would call the script using :
 
 .. code-block::
 
    :setup
    # Call the function you defined with some arguments
-   custom esc_item_global_id child_node_name function_name arg1 arg2 arg3
+   # Format : custom esc_item_global_id child_node_name function_name arg1 arg2 ... 
+   # Note no parameters are passed to the "draw_treasure" function
+   custom treasure_maps france_treasure_map draw_treasure 
+   
+     * The GDScript it calls might look like this :
+
+.. code-block::
+
+   extends Node2D
+
+   # An empty array is passed as a parameter to the function so we ignore it
+   func draw_treasure(_ignored_parameter):
+	get_node("../france_map_sprite").visible = true
+
+* If instead you wanted to pass this script some parameters:
+   * If your script took an x and y coordinate to display an "X marks the spot"
+      graphic on the treasure map, your Escoria script code might look like :
+
+.. code-block::
+
+   :setup
+   custom treasure_maps france_treasure_map draw_treasure xcoordinate ycoordinate
+
+   * The matching GDScript code now needs to extract those coordinates from the 
+      parameter array that is passed to the function.
+
+.. code-block::
+
+   extends Node2D
+
+   # Extract coordinates from the array of parameters
+   func draw_treasure(list_of_parameters):
+	var xcoord = list_of_parameters[0]
+	var ycoord = list_of_parameters[1]
+	get_node("../france_map_sprite").visible = true
+	[...]
 
 .. hint::
 
